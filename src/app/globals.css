@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/*
+ * Northstar's palette: a deep teal ink for the sidebar and hero, warm paper
+ * for everything else, sage for gains, clay for losses.
+ */
+@theme {
+  --color-ink: #12322e;
+  --color-ink-soft: #1e403b;
+  --color-ink-line: #2a4e49;
+
+  --color-paper: #f4f1ea;
+  --color-card: #fffdf8;
+  --color-line: #e5dfd2;
+
+  --color-body: #1b2b28;
+  --color-muted: #7e8a85;
+  --color-faint: #a7b0ab;
+
+  --color-sage: #7fa08c;
+  --color-sage-deep: #5c8370;
+  --color-clay: #c06a5c;
+  --color-clay-soft: #e3a79b;
+  --color-amber: #cf8140;
+  --color-sand: #e3d6b4;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Numbers line up column to column, in tables and in the hero alike. */
+  .tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The small uppercase labels above every panel title. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .panel {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-sage-deep);
+    outline-offset: 2px;
+  }
+}
+
+/* The page's own paper grain, kept subtle enough to read through. */
+.grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(27, 43, 40, 0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

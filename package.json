@@ -1,0 +1,30 @@
+{
+  "name": "northstar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Northstar \u2014 a personal live asset tracker. Holdings stay in your browser; quotes are the only thing we look up.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.5",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  }
+}
