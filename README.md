@@ -51,6 +51,30 @@ Symbols are whatever the quote provider uses:
 A ticker the provider can't price still shows up — valued at cost and flagged
 `No quote`, rather than silently reading as zero.
 
+## Putting it online
+
+GitHub hosts the source, not a running copy: this app has server routes
+(`/api/quotes`, `/api/history`), so GitHub Pages — which only serves static
+files — cannot run it. It needs a host that executes Next.js.
+
+**Vercel** (free tier, no configuration needed):
+
+1. Go to [vercel.com/new](https://vercel.com/new) and sign in with GitHub
+2. Import `purple-octopus` — Vercel detects Next.js on its own
+3. Deploy. No environment variables are required; quotes default to Yahoo
+
+You get a public `https://<project>.vercel.app` URL, and every push to the
+deployed branch ships an update. Netlify and Render work the same way.
+
+Two things to know before you share that URL:
+
+- Quotes are fetched by the server on behalf of whoever loads the page, so a
+  public deployment sends your host's traffic to Yahoo's undocumented,
+  unauthenticated endpoint. It rate-limits. Fine for a personal link, not for
+  something you post widely.
+- Holdings are stored per browser, so every visitor sees the seeded sample
+  portfolio and edits only their own copy. Nobody can see yours.
+
 ## Configuration
 
 Copy `.env.example` to `.env.local` if you want to change the defaults:
